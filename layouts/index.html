@@ -1,21 +1,10 @@
-{{ define "main" -}}
-<div class="posts">
-    {{ $frontPageTypes := default (slice "posts") .Site.Params.front_page_content }}
-    {{ range (.Paginate (where .Site.RegularPages "Type" "in" $frontPageTypes)).Pages }}
-    <article class="post">
-        {{ partial "post/info.html" . }}
-        {{ if or (.Site.Params.noSummary) (.Params.noSummary) }}
-        {{ .Content }}
-        {{ else }}
-        {{ .Summary }}
-        {{ if .Truncated }}
-        <div class="read-more-link">
-            <a href="{{ .RelPermalink }}">Read More…</a>
-        </div>
-        {{ end }}
-        {{ end }}
-    </article>
-    {{- end }}
-</div>
-{{ partial "pagination.html" . }}
-{{- end }}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="refresh" content="0; url={{ .Site.BaseURL }}about/">
+    <title>Redirecting...</title>
+  </head>
+  <body>
+    <p>If you are not redirected automatically, follow this <a href="{{ .Site.BaseURL }}about/">link to the about page</a>.</p>
+  </body>
+</html>
